@@ -1,5 +1,5 @@
 FOLDER APP :
-  #APP.py
-  -> TEMPLATES
-      #index.html
+|__APP.py
+|__TEMPLATES
+   |__index.html
       
