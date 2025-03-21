@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Météo App avec WeatherAPI</title>
+</head>
+<body>
+    <h1>Application Météo</h1>
+    <form method="POST">
+        <label for="city">Entrez le nom de la ville :</label>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Obtenir la météo</button>
+    </form>
+
+    {% if weather %}
+        {% if weather.error %}
+            <p>{{ weather.error }}</p>
+        {% else %}
+            <h2>Météo à {{ weather.location.name }}, {{ weather.location.country }}</h2>
+            <p>Température : {{ weather.current.temp_c }}°C</p>
+            <p>Conditions : {{ weather.current.condition.text }}</p>
+            <p>Humidité : {{ weather.current.humidity }}%</p>
+            <p>Vent : {{ weather.current.wind_kph }} km/h</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
